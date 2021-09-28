@@ -25,7 +25,7 @@ protestas_macro <- function(m_comuna, protestas, dir_entrada, dir_salida){
   ma_comuna <- st_read(dsn ="C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna.gpkg", layer = m_comuna)
   variable <- st_combine(ma_comuna)
   protestas_macrocomuna <- st_intersection(protestas, variable)
-  protestas_macrocomuna_p8 <- mutate(protestas_macrocomuna, macro_p8 = str_extract(m_comuna, "[[:digit:]]+"))
+  protestas_macrocomuna_p8 <- mutate(protestas_macrocomuna, macro_p8 = as.integer(str_extract(m_comuna, "[[:digit:]]+")))
   carpeta_salida <- dir_salida
   st_write(protestas_macrocomuna_p8, dsn=paste(carpeta_salida,"/", "protestas_comuna.gpkg", sep=""), 
            layer=paste(m_comuna, sep=""))

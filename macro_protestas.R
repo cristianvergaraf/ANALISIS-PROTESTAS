@@ -36,12 +36,10 @@ nombres_macro <- substr(nombre,1,nchar(nombre)-4)
 
 as.integer(str_extract(nombres_macro[1], "[[:digit:]]+"))
 
-macro_12102.shp <- st_read(dsn = "C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna.gpkg",
-                                  layer="macro_12102.shp") # revisar como se escribieron o leyeron los nombres
+#macro_12102.shp <- st_read(dsn = "C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna.gpkg",
+    #                              layer="macro_12102.shp") # revisar como se escribieron o leyeron los nombres
 
 
-#protestas_macro("macro_10101.shp", protestas_feministas_3857, "C:/projectos/dizzi/datos_espaciales/resultados",
- #               "C:/projectos/dizzi/datos_espaciales/res_protestas")
 
 
 for (i in nombre){
