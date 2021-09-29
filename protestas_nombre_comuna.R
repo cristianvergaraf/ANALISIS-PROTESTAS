@@ -1,4 +1,5 @@
-#### Analisis de las protestas feministas 14/09/2021 #####
+### El objetivo de este fichero es generar un fichero csv que identifique en que comuna se encuentra cada protesta, y seleccionar las variables mas importantes que serán
+### utilizada para el conteo del número de protestas
 
 library(dplyr)
 library(sf)
