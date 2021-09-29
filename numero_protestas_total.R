@@ -1,6 +1,6 @@
 ### Autor: Cristian Vergara
 
-# Objetivos: 
+## Objetivos: 
 
 ## A partir del número de protestas encontradas en las comunas de los cuestionarios ELSOC, y las comunas aledañas, contar el número de protestas que ocurrieron en un 
 ## en un plazo de un mes, tres semanas, dos semanas, y una semana antes de la aplicación de un cuestionario de actitudes.
@@ -28,8 +28,9 @@ for (i in macro_names){
 
 ##########
 # De los resultados anteriores vamos a genrar un solo fichero utilizando la función load_data
+setwd("~/github/protest-analysis")
 
-source(load_data.R)
+source(merge_csv_function.R)
 
 protestas_comunas_chile_completo <- load_data("C:/projectos/dizzi/datos_espaciales/res_protestas_tiempo")
  
