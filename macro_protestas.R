@@ -1,3 +1,6 @@
+##
+## EL objetivo de este script es identificar las protestas ocurridas en las macro comunas identificadas anteriormente ##
+## para esto aplicarame los función protestas_macro definida en el script de macro_unidades.R
 
 library(dplyr)
 library(sf)
@@ -33,14 +36,6 @@ layers <- st_layers("C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna
 nombre <- layers$name
 
 nombres_macro <- substr(nombre,1,nchar(nombre)-4)
-
-as.integer(str_extract(nombres_macro[1], "[[:digit:]]+"))
-
-#macro_12102.shp <- st_read(dsn = "C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna.gpkg",
-    #                              layer="macro_12102.shp") # revisar como se escribieron o leyeron los nombres
-
-
-
 
 for (i in nombre){
   protestas_macro(i,protestas_feministas_3857, "C:/projectos/dizzi/datos_espaciales/resultados",
