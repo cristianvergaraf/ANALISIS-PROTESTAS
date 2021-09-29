@@ -26,6 +26,15 @@ for (i in macro_names){
   
 }
 
+##########
+# De los resultados anteriores vamos a genrar un solo fichero utilizando la función load_data
+
+source(load_data.R)
+
+protestas_comunas_chile_completo <- load_data("C:/projectos/dizzi/datos_espaciales/res_protestas_tiempo")
+ 
+write.csv(protestas_comunas_chile_completo, file = "C:/projectos/dizzi/datos_espaciales/res_protestas_tiempo/protestas_comunas_chile_completo.csv")
+
 
 ################################
 # II Parte
