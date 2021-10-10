@@ -1,7 +1,9 @@
+### Este es un peque√±o fichero para contar el numero de protestas que existieron en todas las comunas para verificar que el resultado de la funcion macro_protestas es correcto
+
 datos_comuna <- filter(numero_protestas_com, NOM_COM == "Angol" | NOM_COM == "Los Sauces"|
-                         NOM_COM == "Ercilla" | NOM_COM == "Renaico" | NOM_COM == "PurÈn" |
-                         NOM_COM == "Los ¡lamos" | NOM_COM == "Collipulli" | NOM_COM == "Nacimiento" |
-                         NOM_COM == "Curanilahue" | NOM_COM == "CaÒete" )%>% group_by(NOM_COM)
+                         NOM_COM == "Ercilla" | NOM_COM == "Renaico" | NOM_COM == "Pur√©n" |
+                         NOM_COM == "Los √Ålamos" | NOM_COM == "Collipulli" | NOM_COM == "Nacimiento" |
+                         NOM_COM == "Curanilahue" | NOM_COM == "Ca√±ete" )%>% group_by(NOM_COM)
 
 group_by(datos_comuna, NOM_COM) %>% summarise(protestas_total = sum(protesta))
 ungroup(datos_comuna) %>% summarise(protestas_total = sum(protesta))
