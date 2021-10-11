@@ -28,3 +28,16 @@ protestas_macro <- function(m_comuna, protestas, dir_entrada, dir_salida){
            layer=paste(m_comuna, sep=""))
   
 }
+
+
+buffer_centroides_elsoc <- function(manzanas,ELSOC_CHILE, buffer_dist, dir_salida){
+  manzanas_elsoc_chile <- right_join(manzanas,ELSOC_CHILE, by = "MANZENT")
+  cent_elsoc_chile <- st_centroid(manzanas_elsoc_chile)
+  buf_elsoc_chile <- st_buffer(cent_elsoc_chile, dist = as.integer(buffer_dist))
+  carpeta_salida <- dir_salida
+  st_write(buf_elsoc_chile, dsn=paste(carpeta_salida,"/", paste("buf_elsoc_chile_",buffer_dist,".gpkg", sep=""), 
+                                      layer=paste("buf_elsoc_chile_",buffer_dist,".shp", sep="")))
+}
+
+
+
