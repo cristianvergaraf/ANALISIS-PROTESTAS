@@ -12,7 +12,7 @@ funcion_conteo_protestas_macrocomuna <- function(ruta_base_datos, p_comuna, dir_
   
   #### importar datos cuestionarios #### 
 
-  setwd("C:/projectos/dizzi/csv")
+  setwd("C:/projectos/disi/csv")
 
   ELSOC_complete_temporal <- read.csv(file = "ELSOC_complete_temporal.csv", stringsAsFactors = FALSE) %>% as_tibble() %>% 
     mutate(date = mdy(date)) %>%

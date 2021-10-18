@@ -1,5 +1,6 @@
-### El objetivo de este fichero es generar un fichero csv que identifique en que comuna se encuentra cada protesta, y seleccionar las variables mas importantes que serán
-### utilizada para el conteo del número de protestas
+### El objetivo de este fichero es generar un fichero csv que identifique en que comuna 
+## se encuentra cada protesta,  y seleccionar las variables mas importantes que ser�n 
+## utilizada para el conteo del numero de protestas
 
 library(dplyr)
 library(sf)

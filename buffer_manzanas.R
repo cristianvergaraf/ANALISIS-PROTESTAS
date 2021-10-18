@@ -39,6 +39,7 @@ setwd("~/GitHub/protest-analysis")
 source("manzanas_perdidas.R")
 
 ## Todas las manzanas donde se aplicó el cuestionario ELSOC
+
 ELSOC_manzanas_unique <- unique(ELSOC_complete_temporal$manzana)
 length(ELSOC_manzanas_unique)
 

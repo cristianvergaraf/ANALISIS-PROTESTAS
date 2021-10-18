@@ -1,6 +1,7 @@
 ## Este script define dos funciones:
-## Función macro_pais que permite crear macro comunas a partir de una comuna central.
-## Función macro_protestas que permite identificar las protestas ocurridas en cada macro comuna a partir de una intersección espacial de ambos datos.
+## Funcion macro_pais que permite crear macro comunas a partir de una comuna central.
+## Funcion macro_protestas que permite identificar las protestas ocurridas en cada macro 
+## comuna a partir de una interseccion espacial de ambos datos.
 
 
 library(sf)
@@ -19,13 +20,13 @@ macro_pais <- function(comuna, dir_salida){
 
 protestas_macro <- function(m_comuna, protestas, dir_entrada, dir_salida){
   setwd(dir_entrada)
-  ma_comuna <- st_read(dsn ="C:/projectos/dizzi/datos_espaciales/resultados/macro_comuna.gpkg", layer = m_comuna)
+  ma_comuna <- st_read(dsn ="C:/projectos/disi/datos_espaciales/resultados_macrocomuna/macro_comuna.gpkg", layer = m_comuna)
   variable <- st_combine(ma_comuna)
   protestas_macrocomuna <- st_intersection(protestas, variable)
   protestas_macrocomuna_p8 <- mutate(protestas_macrocomuna, macro_p8 = as.integer(str_extract(m_comuna, "[[:digit:]]+")))
   carpeta_salida <- dir_salida
   st_write(protestas_macrocomuna_p8, dsn=paste(carpeta_salida,"/", "protestas_comuna.gpkg", sep=""), 
-           layer=paste(m_comuna, sep=""))
+           layer=paste("protesta_",m_comuna, sep=""))
   
 }
 
