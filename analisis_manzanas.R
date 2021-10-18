@@ -16,7 +16,7 @@
 ## https://geoine-ine-chile.opendata.arcgis.com/search?q=manzanas
 ## https://geoine-ine-chile.opendata.arcgis.com/search?q=manzana
 
-setwd("C:/projectos/dizzi/Censo2017_16R_ManzanaEntidad_CSV")
+setwd("C:/projectos/disi/Censo2017_16R_ManzanaEntidad_CSV")
 
 censo <- read.csv("Censo2017_Manzanas.csv", sep = ";")
 head(censo)
@@ -32,7 +32,7 @@ head(censo_sel)
 
 filter(censo_sel, ID_MANZENT_15R == 1101031004002)
 
-setwd("C:/projectos/dizzi/Censo2017_16R_ManzanaEntidad_CSV/Censo2017_Identificación_Geográfica")
+setwd("C:/projectos/disi/Censo2017_16R_ManzanaEntidad_CSV/Censo2017_Identificación_Geográfica")
 
 microdato_censo2017 <- read.csv("Microdato_Censo2017-Geografia_Manzanas.csv", sep = ";")
 
@@ -44,7 +44,7 @@ filter(microdato_censo2017, ID_MANZENT == 1101031004002)
 ## geodatos INE
 
 
-setwd("C:/projectos/dizzi/manzanas")
+setwd("C:/projectos/disi/manzanas")
 
 manzanas <- st_read(dsn = ".",  layer = "Microdatos_Censo_20173A_Manzana")
 
@@ -60,7 +60,7 @@ length(unique(manzanas_chile_20173A$MANZENT_INE_20173A))
 
 ######################################################
 
-setwd("C:/projectos/dizzi/manzanas")
+setwd("C:/projectos/disi/manzanas")
 
 manzanas_indeterminada <- st_read(dsn = ".",  layer = "Microdatos_Manzana_Indeterminada")
 
@@ -82,9 +82,9 @@ manzanas_INE_20173A <- unique(manzanas_sim$MANZENT)
 manzanas_chile_20173A <- data.frame(MANZENT_INE_20173A = manzanas_INE_20173A)
 manzanas_chile_20173A
 
-length(unique(manzanas_chile_20173A$MANZENT_INE_20173A)) 151545
+length(unique(manzanas_chile_20173A$MANZENT_INE_20173A))# 151545
 
-setwd("C:/projectos/dizzi/csv")
+setwd("C:/projectos/disi/csv")
 
 ELSOC_complete_temporal <- read.csv(file = "ELSOC_complete_temporal.csv") %>% as_tibble() %>% 
   mutate(date = mdy(date))%>% 
@@ -147,5 +147,11 @@ length(registros_faltantes_sim_manzent)
   
   ################################################3
   
+  registros_faltantes16R <- data.frame(RF_INE_CENSO16R = registros_faltantes_ine_censo_sel)
+  registros_faltantes15R <- data.frame(RF_INE_CENSO15R = registros_faltantes_ine_censo_sel_15R)
   
+  setwd("C:/projectos/disi/manzanas")
+  
+  write.csv(registros_faltantes16R, file = "registros_faltantes16R.csv")
+  write.csv(registros_faltantes15R, file = "registros_faltantes15R.csv")
   
